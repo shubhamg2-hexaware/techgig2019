@@ -1,6 +1,6 @@
 const processMessage = require('./processMessage');
 const processPayload = require('./processPayload');
-var db = require('../db/mysql.js');
+// var db = require('../db/mysql.js');
 
 module.exports = (req, res) => {
     if (req.body.object === 'page') {

@@ -2,6 +2,7 @@ const request = require('request');
 require('dotenv').config()
 const FACEBOOK_ACCESS_TOKEN = process.env.FACEBOOK_TOKEN;
 const getResponse = require('./getResponse');
+const responseTemplate = require('./responseTemplate');
 
 const sendTextMessage = (senderId, res) => {
     request({
@@ -25,6 +26,23 @@ module.exports = (event) => {
     console.log('------------------Inside processMessage-------------------');
     console.log(JSON.stringify(event));
     const senderId = event.sender.id;
-    const res = "hello";
-    sendTextMessage(senderId, res);
+    if (event.message.text == 'simple_text') {
+        sendTextMessage(senderId, responseTemplate.simpleText());
+    }
+
+    if (event.message.text == 'carousel') {
+        sendTextMessage(senderId, responseTemplate.getCarousel());
+    }
+
+    if (event.message.text == 'card') {
+        sendTextMessage(senderId, responseTemplate.getCard());
+    }
+
+    if (event.message.text == 'quick_replies') {
+        sendTextMessage(senderId, responseTemplate.getQuickReplies());
+    }
+    
+    if (event.message.text == 'button') {
+        sendTextMessage(senderId, responseTemplate.getButton());
+    }
 };
