@@ -16,7 +16,7 @@
     "client-sessions": "^0.8.0",
     "deasync": "^0.1.12",
     "dotenv": "^5.0.1",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "path": "^0.12.7",
     "request": "^2.83.0"
   }
